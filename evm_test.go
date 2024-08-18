@@ -15,9 +15,15 @@ func TestCOA(t *testing.T) {
 	o, err := OverflowTesting()
 	fmt.Print(err)
 	assert.NoError(t, err)
-	// "Create a COA"
+	// Create a COA
 	color.Cyan("Create a COA inside Bob's account")
 	o.Tx("create_COA",
 		WithSigner("bob"),
 	).AssertSuccess(t).Print()
+	// Get balance
+	color.Cyan("Fetch balance from the COA inside Bob's account")
+	o.Script("get_coa_balance",
+		WithArg("address", "bob"),
+		WithArg("pathId", 0),
+	).Print()
 }
