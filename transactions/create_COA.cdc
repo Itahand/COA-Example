@@ -1,5 +1,6 @@
 import "EVM"
 
+// Note that this is just one of many ways of handling multiple COAs inside an account
 transaction() {
     prepare(signer: auth(BorrowValue, IssueStorageCapabilityController, PublishCapability, SaveValue, UnpublishCapability) &Account) {
         // Define n and status
