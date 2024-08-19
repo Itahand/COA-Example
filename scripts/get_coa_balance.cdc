@@ -8,7 +8,7 @@ fun main(address: Address, pathId: Int): EVM.Balance {
     // Borrow a reference to the COA from the storage location we saved it to
     let coa = getAuthAccount<auth(Storage) &Account>(address).storage.borrow<&EVM.CadenceOwnedAccount>(
         from: coaPath
-    ) ?? panic("Could not borrow reference to the COA")
+    ) ?? panic("Could not borrow reference to the COA located at storage slot: ".concat(coaPath.toString()))
     // Get the current balance of this COA
     return coa.balance()
 }

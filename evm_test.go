@@ -20,10 +20,15 @@ func TestCOA(t *testing.T) {
 	o.Tx("create_COA",
 		WithSigner("bob"),
 	).AssertSuccess(t).Print()
+	// Create a SECOND COA for Bob
+	color.Cyan("Create a COA inside Bob's account")
+	o.Tx("create_COA",
+		WithSigner("bob"),
+	).AssertSuccess(t).Print()
 	// Get balance
 	color.Cyan("Fetch balance from the COA inside Bob's account")
 	o.Script("get_coa_balance",
 		WithArg("address", "bob"),
-		WithArg("pathId", 0),
+		WithArg("pathId", 1),
 	).Print()
 }
