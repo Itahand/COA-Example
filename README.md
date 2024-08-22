@@ -8,4 +8,4 @@ For a fine-tune test for contracts, scripts and transactions go to the root fold
 go run ./tasks/main.go
 ```
 
-You can find the full explenatory article here: https://medium.com/@noah.naizir/create-a-cadence-owned-account-a11f9bc339b6
+You can find the full explenatory article [here](https://medium.com/@noah.naizir/create-a-cadence-owned-account-a11f9bc339b6)
