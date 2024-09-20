@@ -12,6 +12,7 @@ func main() {
 	//start an in memory emulator by default
 	o := Overflow(
 		WithGlobalPrintOptions(),
+		WithNetwork("testnet"),
 	)
 
 	fmt.Println("Testing Contract")
@@ -25,6 +26,6 @@ func main() {
 	color.Red("Should be able to create a COA")
 	// Create COA inside Bob's account
 	o.Tx("create_COA",
-		WithSigner("bob"),
-	)
+		WithSigner("gamer"),
+	).Print()
 }
