@@ -27,6 +27,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error reading JavaScript file: %v", err)
 	}
+	fmt.Println(jsContent[0])
 	//start an in memory emulator by default
 	o := Overflow(
 		WithGlobalPrintOptions(),
@@ -47,11 +48,24 @@ func main() {
 		WithSigner("gamer"),
 	).Print() */
 
+	/* 	o.Script("get_COA_address",
+		WithArg("address", "gamer"),
+		WithArg("pathId", 0),
+	).Print() */
+
 	// Deploy a Solidity contract to the COA
 	color.Cyan("Deploy a Solidity contract to Random's COA")
-	o.Tx("deploy_sol_contract",
+	/* 	o.Tx("deploy_sol_contract",
 		WithSigner("gamer"),
 		WithArg("code", jsContent),
 		WithArg("pathId", 0),
+	).Print() */
+
+	color.Cyan("Mint a game item from the Solidity contract")
+	o.Script("call_sol_function",
+		WithArg("hexEncodedAddress", "b93cB988D0722E17B67A5E169a47FB6F3A4dea1b"),
+		WithArg("address", "gamer"),
+		WithArg("pathId", 0),
 	).Print()
+
 }
